@@ -1,0 +1,23 @@
+<button (click)="visible = !visible">
+	calculatrice
+</button>
+
+<div id='calculatrice' *ngIf="visible">
+	
+	<pre class='equation'>{{ equation }}</pre>
+
+	<div class='all-keys' *ngIf="keys">
+
+		<div class="{{zone}}-zone"
+			*ngFor="let zone of ['keys', 'keys_aside']">
+			
+			<div
+				class='calc-key'
+				(click)="clicked(key)"
+				*ngFor="let key of this[zone]">
+
+				{{ key.value }}
+			</div>
+		</div>
+	</div>
+</div>
